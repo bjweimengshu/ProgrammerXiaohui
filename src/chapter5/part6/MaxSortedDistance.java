@@ -20,6 +20,10 @@ public class MaxSortedDistance {
             }
         }
         int d = max - min;
+        //如果max和min相等，说明数组所有元素都相等，返回0
+        if(d == 0){
+            return 0;
+        }
 
         //2.初始化桶
         int bucketNum = array.length;
@@ -30,33 +34,27 @@ public class MaxSortedDistance {
 
         //3.遍历原始数组，确定每个桶的最大最小值
         for(int i = 0; i < array.length; i++){
+            //确定数组元素所归属的桶下标
             int index = ((array[i] - min)  * (bucketNum-1) / d);
-            if(buckets[index].min==null){
+            if(buckets[index].min==null || buckets[index].min>array[i]){
                 buckets[index].min = array[i];
-                buckets[index].max = array[i];
-            }else if(buckets[index].min < array[i]){
-                buckets[index].min = array[i];
-            }else if(buckets[index].max > array[i]){
+            }
+            if(buckets[index].max==null || buckets[index].max<array[i]){
                 buckets[index].max = array[i];
             }
         }
 
         //4.遍历桶，找到最大差值
-        int leftValue=0;
-        if(buckets.length>0){
-            leftValue = buckets[0].max;
-        }
-        int rightValue;
+        int leftMax = buckets[0].max;
         int maxDistance = 0;
-        for(int i=0; i < buckets.length-1; i++){
-            if(buckets[i+1].min==null){
+        for (int i=1; i<buckets.length; i++) {
+            if (buckets[i].min == null) {
                 continue;
             }
-            rightValue = buckets[i+1].min;
-            if(maxDistance < rightValue-leftValue){
-                maxDistance = rightValue-leftValue;
+            if (buckets[i].min - leftMax > maxDistance) {
+                maxDistance = buckets[i].min - leftMax;
             }
-            leftValue = buckets[i+1].max;
+            leftMax = buckets[i].max;
         }
 
         return maxDistance;

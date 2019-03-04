@@ -42,7 +42,7 @@ public class GreatestCommonDivisor {
             return a;
         }
         if((a&1)==0 && (b&1)==0){
-            return getGreatestCommonDivisorFinal(a >> 1, b >> 1)<<2;
+            return getGreatestCommonDivisorFinal(a >> 1, b >> 1)<<1;
         } else if((a&1)==0 && (b&1)!=0){
             return getGreatestCommonDivisorFinal(a >> 1, b);
         } else if((a&1)!=0 && (b&1)==0){

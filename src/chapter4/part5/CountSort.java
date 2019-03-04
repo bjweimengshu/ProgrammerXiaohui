@@ -51,10 +51,8 @@ public class CountSort {
             countArray[array[i]-min]++;
         }
         //3.统计数组做变形，后面的元素等于前面的元素之和
-        int sum = 0;
-        for(int i=0;i<countArray.length;i++) {
-            sum += countArray[i];
-            countArray[i] = sum;
+        for(int i=1;i<countArray.length;i++) {
+            countArray[i] += countArray[i-1];
         }
         //4.倒序遍历原始数列，从统计数组找到正确位置，输出到结果数组
         int[] sortedArray = new int[array.length];

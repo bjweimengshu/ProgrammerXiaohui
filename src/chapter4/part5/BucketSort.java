@@ -38,7 +38,7 @@ public class BucketSort {
             bucketList.get(num).add(array[i]);
         }
 
-        //4.对每个通内部进行排序
+        //4.对每个桶内部进行排序
         for(int i = 0; i < bucketList.size(); i++){
             //JDK底层采用了归并排序或归并的优化版本
             Collections.sort(bucketList.get(i));

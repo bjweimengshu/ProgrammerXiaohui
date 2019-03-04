@@ -16,13 +16,9 @@ public class MinStack {
      */
     public void push(int element) {
         mainStack.push(element);
-        //如果最小栈为空，直接让下标0入栈
-        if(minStack.isEmpty()){
-            minStack.push(0);
-            return;
-        }
-        if(element < getMin()){
-            minStack.push(mainStack.size()-1);
+        //如果辅助栈为空，或新元素小于等于辅助栈栈顶，则新元素压入辅助栈
+        if (minStack.empty() || element  <= minStack.peek()) {
+            minStack.push(element);
         }
     }
 
@@ -30,22 +26,22 @@ public class MinStack {
      * 出栈操作
      */
     public Integer pop() {
-        Integer element = mainStack.pop();
-        //如果出栈元素的下标和最小栈栈顶值相等，最小栈出栈
-        if(mainStack.size() == minStack.lastElement()){
+        //如果出栈元素和辅助栈栈顶元素值相等，辅助栈出栈
+        if (mainStack.peek().equals(minStack.peek())) {
             minStack.pop();
         }
-        return element;
+        return mainStack.pop();
     }
 
     /**
      * 获取栈的最小元素
      */
-    public Integer getMin(){
-        if(mainStack.isEmpty()){
-            return null;
+    public int getMin() throws Exception {
+        if (mainStack.empty()) {
+            throw new Exception("stack is empty");
         }
-        return mainStack.get(minStack.lastElement());
+
+        return minStack.peek();
     }
 
     public static void main(String[] args) throws Exception {

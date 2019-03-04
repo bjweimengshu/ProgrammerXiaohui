@@ -20,13 +20,13 @@ public class QuickSort {
     }
 
     /**
-     * 分治（指针交换法）
+     * 分治（双边循环法）
      * @param arr     待交换的数组
      * @param startIndex    起始下标
      * @param endIndex    结束下标
      */
     private static int partition(int[] arr, int startIndex, int endIndex) {
-        // 取第一个位置的元素作为基准元素
+        // 取第一个位置的元素作为基准元素（也可以选择随机位置）
         int pivot = arr[startIndex];
         int left = startIndex;
         int right = endIndex;
@@ -49,55 +49,35 @@ public class QuickSort {
         }
 
         //pivot和指针重合点交换
-        int p = arr[left];
-        arr[left] = arr[startIndex];
-        arr[startIndex] = p;
-        System.out.println(Arrays.toString(arr));
+        arr[startIndex] = arr[left];
+        arr[left] = pivot;
+
         return left;
     }
 
     /**
-     * 分治（挖坑法）
+     * 分治（单边循环法）
      * @param arr     待交换的数组
      * @param startIndex    起始下标
      * @param endIndex    结束下标
      */
     private static int partitionV2(int[] arr, int startIndex, int endIndex) {
-        // 取第一个位置的元素作为基准元素
+        // 取第一个位置的元素作为基准元素（也可以选择随机位置）
         int pivot = arr[startIndex];
-        int left = startIndex;
-        int right = endIndex;
-        // 坑的位置，初始等于pivot的位置
-        int index = startIndex;
+        int mark = startIndex;
 
-        //大循环在左右指针重合或者交错时结束
-        while ( right >= left  ){
-            //right指针从右向左进行比较
-            while ( right >= left ) {
-                if (arr[right] < pivot) {
-                    System.out.println("交换");
-                    arr[left] = arr[right];
-                    index = right;
-                    left++;
-                    break;
-                }
-                right--;
-            }
-            //left指针从左向右进行比较
-            while ( right >= left ) {
-                if (arr[left] > pivot) {
-                    System.out.println("交换");
-                    arr[right] = arr[left];
-                    index = left;
-                    right--;
-                    break;
-                }
-                left++;
+        for(int i=startIndex+1; i<=endIndex; i++){
+            if(arr[i]<pivot){
+                mark ++;
+                int p = arr[mark];
+                arr[mark] = arr[i];
+                arr[i] = p;
             }
         }
-        arr[index] = pivot;
-        System.out.println(Arrays.toString(arr));
-        return index;
+
+        arr[startIndex] = arr[mark];
+        arr[mark] = pivot;
+        return mark;
     }
 
     public static void main(String[] args) {

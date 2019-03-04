@@ -34,11 +34,11 @@ public class HeapSort {
     }
 
     /**
-     * 堆排序
+     * 堆排序(升序)
      * @param array     待调整的堆
      */
     public static void heapSort(int[] array) {
-        // 1.把无序数组构建成二叉堆。
+        // 1.把无序数组构建成最大堆。
         for (int i = (array.length-2)/2; i >= 0; i--) {
             downAdjust(array, i, array.length);
         }
