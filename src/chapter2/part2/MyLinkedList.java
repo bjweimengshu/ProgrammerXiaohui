@@ -19,7 +19,7 @@ public class MyLinkedList {
      */
     public void insert(int data, int index) throws Exception {
         if (index<0 || index>size) {
-            throw new Exception("超出链表节点范围！");
+            throw new IndexOutOfBoundsException("超出链表节点范围！");
         }
         Node insertedNode = new Node(data);
         if(size == 0){
@@ -46,7 +46,7 @@ public class MyLinkedList {
      */
     public Node remove(int index) throws Exception {
         if (index<0 || index>=size) {
-            throw new Exception("超出链表节点范围！");
+            throw new IndexOutOfBoundsException("超出链表节点范围！");
         }
         Node removedNode = null;
         if(index == 0){
@@ -76,7 +76,7 @@ public class MyLinkedList {
      */
     public Node get(int index) throws Exception {
         if (index<0 || index>=size) {
-            throw new Exception("超出链表节点范围！");
+            throw new IndexOutOfBoundsException("超出链表节点范围！");
         }
         Node temp = head;
         for(int i=0; i<index; i++){

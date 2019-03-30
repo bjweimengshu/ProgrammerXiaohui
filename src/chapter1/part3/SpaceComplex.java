@@ -16,7 +16,7 @@ public class SpaceComplex {
     }
 
     void fun3(int n){
-        int[][] twoDimensionalArray = new int[n][n];
+        int[][] matrix = new int[n][n];
         //do something
     }
 

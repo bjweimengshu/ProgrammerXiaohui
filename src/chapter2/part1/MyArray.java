@@ -21,7 +21,7 @@ public class MyArray {
     public void insert(int element, int index) throws Exception {
         //判断访问下标是否超出范围
         if(index<0 || index>size){
-            throw new Exception("超出数组实际元素范围！");
+            throw new IndexOutOfBoundsException("超出数组实际元素范围！");
         }
         //如果实际元素达到数组容量上线，数组扩容
         if(size >= array.length){
@@ -29,7 +29,7 @@ public class MyArray {
         }
         //从右向左循环，逐个元素向右挪一位。
         for(int i=size-1; i>=index; i--){
-            array[index+1] = array[index];
+            array[i+1] = array[i];
         }
         //腾出的位置放入新元素
         array[index] = element;
@@ -53,12 +53,12 @@ public class MyArray {
     public int delete(int index) throws Exception {
         //判断访问下标是否超出范围
         if(index<0 || index>=size){
-            throw new Exception("超出数组实际元素范围！");
+            throw new IndexOutOfBoundsException("超出数组实际元素范围！");
         }
         int deletedElement = array[index];
         //从左向右循环，逐个元素向左挪一位。
         for(int i=index; i<size-1; i++){
-            array[index] = array[index+1];
+            array[i] = array[i+1];
         }
         size--;
         return deletedElement;
@@ -80,6 +80,8 @@ public class MyArray {
         myArray.insert(9,2);
         myArray.insert(5,3);
         myArray.insert(6,1);
+        myArray.insert(8,5);
+        myArray.delete(3);
         myArray.output();
     }
 }

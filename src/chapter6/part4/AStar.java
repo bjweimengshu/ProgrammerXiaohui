@@ -144,7 +144,7 @@ public class AStar {
             path.add(new Grid(resultGrid.x, resultGrid.y));
             resultGrid = resultGrid.parent;
         }
-        //输出迷宫和路径
+        //输出迷宫和路径，路径用星号表示
         for (int i = 0; i < MAZE.length; i++) {
             for (int j = 0; j < MAZE[0].length; j++) {
                 if (containGrid(path, i, j)) {
