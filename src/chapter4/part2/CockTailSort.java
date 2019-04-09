@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CockTailSort {
 
-    private static void sort(int array[])
+    public static void sort(int array[])
     {
         int tmp  = 0;
         for(int i=0; i<array.length/2; i++)

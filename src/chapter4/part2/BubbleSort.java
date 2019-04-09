@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-    private static void sort(int array[])
+    public static void sort(int array[])
     {
         int tmp  = 0;
         //记录最后一次交换的位置

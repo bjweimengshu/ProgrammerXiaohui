@@ -7,7 +7,6 @@ import java.util.Arrays;
  */
 public class FindNearestNumber {
 
-    //主流程，返回最近一个大于自身的相同数字组成的整数。
     public static int[] findNearestNumber(int[] numbers){
         //1.从后向前查看逆序区域，找到逆序区域的前一位，也就是数字置换的边界
         int index = findTransferPoint(numbers);

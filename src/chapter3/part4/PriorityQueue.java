@@ -19,7 +19,7 @@ public class PriorityQueue {
      * 入队
      * @param key  入队元素
      */
-    private void enQueue(int key) {
+    public void enQueue(int key) {
         //队列长度超出范围，扩容
         if(size >= array.length){
             resize();
@@ -31,7 +31,7 @@ public class PriorityQueue {
     /**
      * 出队
      */
-    private int deQueue() throws Exception {
+    public int deQueue() throws Exception {
         if(size <= 0){
             throw new Exception("the queue is empty !");
         }
@@ -86,7 +86,7 @@ public class PriorityQueue {
     }
 
     /**
-     * 下沉调整
+     * 队列扩容
      */
     private void resize() {
         //队列容量翻倍
