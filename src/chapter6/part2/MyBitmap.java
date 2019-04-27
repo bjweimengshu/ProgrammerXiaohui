@@ -17,7 +17,7 @@ public class MyBitmap {
 
     /**
      * 判断bitmap某一位的状态
-     * @param bitIndex  位图的第bitIndex位（bitIndex=0 代表bitmap左数第一位）
+     * @param bitIndex  位图的第bitIndex位
      */
     public boolean getBit(int bitIndex) {
         if(bitIndex<0 || bitIndex>size-1){
@@ -29,7 +29,7 @@ public class MyBitmap {
 
     /**
      * 把bitmap某一位设为真
-     * @param bitIndex  位图的第bitIndex位（bitIndex=0 代表bitmap左数第一位）
+     * @param bitIndex  位图的第bitIndex位
      */
     public void setBit(int bitIndex) {
         if(bitIndex<0 || bitIndex>size-1){
@@ -41,7 +41,7 @@ public class MyBitmap {
 
     /**
      * 定位bitmap某一位所对应的word
-     * @param bitIndex  位图的第bitIndex位（bitIndex=0 代表bitmap左数第一位）
+     * @param bitIndex  位图的第bitIndex位
      */
     private int getWordIndex(int bitIndex) {
         //右移6位，相当于除以64
