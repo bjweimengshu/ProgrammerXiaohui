@@ -14,7 +14,7 @@ public class TimeComplex {
     }
 
     void eat2(int n){
-        for(int i=0; i<n; i*=2){
+        for(int i=n; i>1; i/=2){
             System.out.println("等待一天");
             System.out.println("等待一天");
             System.out.println("等待一天");
