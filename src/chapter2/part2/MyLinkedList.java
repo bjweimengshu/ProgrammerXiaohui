@@ -82,7 +82,6 @@ public class MyLinkedList {
         for(int i=0; i<index; i++){
             temp = temp.next;
         }
-        size--;
         return temp;
     }
 
