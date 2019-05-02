@@ -15,7 +15,7 @@ public class MyLinkedList {
     /**
      * 链表插入元素
      * @param data  插入元素
-     * @param data  插入位置
+     * @param index  插入位置
      */
     public void insert(int data, int index) throws Exception {
         if (index<0 || index>size) {
@@ -23,9 +23,13 @@ public class MyLinkedList {
         }
         Node insertedNode = new Node(data);
         if(size == 0){
-            //插入头部
+            //空链表
             head = insertedNode;
             last = insertedNode;
+        } else if(index == 0){
+            //插入头部
+            insertedNode.next = head;
+            head = insertedNode;
         }else if(size == index){
             //插入尾部
             last.next = insertedNode;
