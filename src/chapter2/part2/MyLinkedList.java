@@ -23,9 +23,13 @@ public class MyLinkedList {
         }
         Node insertedNode = new Node(data);
         if(size == 0){
+	    //空链表
+	    head = insertedNode;
+	    last = insertedNode;
+	}else if(index == 0) {
             //插入头部
+            insertedNode.next = head;
             head = insertedNode;
-            last = insertedNode;
         }else if(size == index){
             //插入尾部
             last.next = insertedNode;
@@ -82,7 +86,6 @@ public class MyLinkedList {
         for(int i=0; i<index; i++){
             temp = temp.next;
         }
-        size--;
         return temp;
     }
 
