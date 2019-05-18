@@ -60,6 +60,8 @@ public class MyArray {
         for(int i=index; i<size-1; i++){
             array[i] = array[i+1];
         }
+        //最后一个元素,拷贝到前面去了,但是还存,初始化为0
+        array[size-1]=0;
         size--;
         return deletedElement;
     }
