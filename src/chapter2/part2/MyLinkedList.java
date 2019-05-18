@@ -37,9 +37,8 @@ public class MyLinkedList {
         }else {
             //插入中间
             Node prevNode = get(index-1);
-            Node nextNode = prevNode.next;
+            insertedNode.next = prevNode.next;
             prevNode.next = insertedNode;
-            insertedNode.next = nextNode;
         }
         size++;
     }
@@ -115,7 +114,7 @@ public class MyLinkedList {
     public static void main(String[] args) throws Exception {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.insert(3,0);
-        myLinkedList.insert(7,1);
+        myLinkedList.insert(4,0);
         myLinkedList.insert(9,2);
         myLinkedList.insert(5,3);
         myLinkedList.insert(6,1);

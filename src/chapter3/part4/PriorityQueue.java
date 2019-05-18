@@ -48,7 +48,7 @@ public class PriorityQueue {
      */
     private void upAdjust() {
         int childIndex = size-1;
-        int parentIndex = childIndex/2;
+        int parentIndex = (childIndex-1)/2;
         // temp保存插入的叶子节点值，用于最后的赋值
         int temp = array[childIndex];
         while (childIndex > 0 && temp > array[parentIndex])
