@@ -11,7 +11,7 @@ public class HeapSort {
      * 下沉调整
      * @param array     待调整的堆
      * @param parentIndex    要下沉的父节点
-     * @param parentIndex    堆的有效大小
+     * @param length    堆的有效大小
      */
     public static void downAdjust(int[] array, int parentIndex, int length) {
         // temp保存父节点值，用于最后的赋值
