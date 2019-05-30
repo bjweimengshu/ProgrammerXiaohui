@@ -20,7 +20,7 @@ public class Redpackage {
         Random random = new Random();
         for(int i=0; i<totalPeopleNum-1; i++){
             //随机范围：[1，剩余人均金额的两倍)，左闭右开
-            int amount = random.nextInt(restAmount / restPeopleNum * 2 - 2) + 1;
+            int amount = random.nextInt(restAmount / restPeopleNum * 2 - 1) + 1;
             restAmount -= amount;
             restPeopleNum --;
             amountList.add(amount);
