@@ -38,7 +38,7 @@ public class Redpackage {
         List<Integer> amountList = new ArrayList<Integer>();
         Set<Integer> segments = new HashSet<Integer>();
         Random random = new Random();
-        for(int i = 0; i< totalPeopleNum; i++){
+        for(int i = 0; i< totalPeopleNum-1; i++){
             int segment =  random.nextInt(totalAmount-2) + 1;
             int delta = random.nextInt(1)==0 ? 1 : -1;
             while(segments.contains(segment) || segment == 0){
