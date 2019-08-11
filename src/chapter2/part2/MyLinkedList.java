@@ -14,10 +14,10 @@ public class MyLinkedList {
 
     /**
      * 链表插入元素
-     * @param data  插入元素
      * @param index  插入位置
+     * @param data  插入元素
      */
-    public void insert(int data, int index) throws Exception {
+    public void insert(int index, int data) throws Exception {
         if (index<0 || index>size) {
             throw new IndexOutOfBoundsException("超出链表节点范围！");
         }
@@ -113,11 +113,11 @@ public class MyLinkedList {
 
     public static void main(String[] args) throws Exception {
         MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.insert(3,0);
-        myLinkedList.insert(4,0);
-        myLinkedList.insert(9,2);
-        myLinkedList.insert(5,3);
-        myLinkedList.insert(6,1);
+        myLinkedList.insert(0,3);
+        myLinkedList.insert(0,4);
+        myLinkedList.insert(2,9);
+        myLinkedList.insert(3,5);
+        myLinkedList.insert(1,6);
         myLinkedList.remove(0);
         myLinkedList.output();
     }

@@ -99,8 +99,8 @@ public class AStar {
     }
 
     private static boolean containGrid(List<Grid> grids, int x, int y) {
-        for (Grid n : grids) {
-            if ((n.x == x) && (n.y == y)) {
+        for (Grid grid : grids) {
+            if ((grid.x == x) && (grid.y == y)) {
                 return true;
             }
         }

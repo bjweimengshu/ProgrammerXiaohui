@@ -15,10 +15,10 @@ public class MyArray {
 
     /**
      * 数组插入元素
-     * @param element  插入的元素
      * @param index  插入的位置
+     * @param element  插入的元素
      */
-    public void insert(int element, int index) throws Exception {
+    public void insert(int index, int element) throws Exception {
         //判断访问下标是否超出范围
         if(index<0 || index>size){
             throw new IndexOutOfBoundsException("超出数组实际元素范围！");
@@ -75,12 +75,12 @@ public class MyArray {
 
     public static void main(String[] args) throws Exception {
         MyArray myArray = new MyArray(4);
-        myArray.insert(3,0);
-        myArray.insert(7,1);
-        myArray.insert(9,2);
-        myArray.insert(5,3);
-        myArray.insert(6,1);
-        myArray.insert(8,5);
+        myArray.insert(0,3);
+        myArray.insert(1,7);
+        myArray.insert(2,9);
+        myArray.insert(3,5);
+        myArray.insert(1,6);
+        myArray.insert(5,8);
         myArray.delete(3);
         myArray.output();
     }

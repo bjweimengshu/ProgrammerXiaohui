@@ -18,6 +18,7 @@ public class BinaryTreeTraversal {
             return null;
         }
         Integer data = inputList.removeFirst();
+        //这里的判空很关键。如果元素是空，说明该节点不存在，跳出这一层递归；如果元素非空，继续递归构建该节点的左右孩子。
         if(data != null){
             node = new TreeNode(data);
             node.leftChild = createBinaryTree(inputList);

@@ -11,34 +11,35 @@ public class RemoveKDigits {
      * @param k  删除数量
      */
     public static String removeKDigits(String num, int k) {
-        String numNew = num;
         for(int i=0; i<k; i++){
             boolean hasCut = false;
             //从左向右遍历，找到比自己右侧数字大的数字并删除
-            for(int j=0; j<numNew.length()-1;j++){
-                if(numNew.charAt(j) > numNew.charAt(j+1)){
-                    numNew = numNew.substring(0, j) + numNew.substring(j+1,numNew.length());
+            for(int j=0; j<num.length()-1;j++){
+                if(num.charAt(j) > num.charAt(j+1)){
+                    num = num.substring(0, j) + num.substring(j+1,num.length());
                     hasCut = true;
                     break;
                 }
             }
             //如果没有找到要删除的数字，则删除最后一个数字
             if(!hasCut){
-                numNew = numNew.substring(0, numNew.length()-1);
-            }
-            //清除整数左侧的数字0
-            for(int j=0; j<num.length()-1; j++){
-                if(num.charAt(0) != '0'){
-                    break;
-                }
-                num = num.substring(1, num.length()) ;
+                num = num.substring(0, num.length()-1);
             }
         }
+        //清除整数左侧的数字0
+        int start = 0;
+        for(int j=0; j<num.length()-1; j++){
+            if(num.charAt(j) != '0'){
+                break;
+            }
+            start++;
+        }
+        num = num.substring(start, num.length()) ;
         //如果整数的所有数字都被删除了，直接返回0
-        if(numNew.length() == 0){
+        if(num.length() == 0){
             return "0";
         }
-        return numNew;
+        return num;
     }
 
     /**
@@ -71,15 +72,16 @@ public class RemoveKDigits {
             //遍历到的当前数字入栈
             stack[top++] = c;
         }
-        // 找到栈中第一个非零数字的位置，以此构建新的整数字符串
+        // 用栈构建新的整数字符串
         return newLength<=0 ? "0" : new String(stack, 0, newLength);
     }
 
     public static void main(String[] args) {
-        System.out.println(removeKDigitsV2("1593212", 3));
-        System.out.println(removeKDigitsV2("30200", 1));
-        System.out.println(removeKDigitsV2("10", 2));
-        System.out.println(removeKDigitsV2("541270936", 3));
-        System.out.println(removeKDigitsV2("1593212", 4));
+        System.out.println(removeKDigits("1593212", 3));
+        System.out.println(removeKDigits("30200", 1));
+        System.out.println(removeKDigits("10", 2));
+        System.out.println(removeKDigits("541270936", 3));
+        System.out.println(removeKDigits("1593212", 4));
+        System.out.println(removeKDigits("1000020000000010", 2));
     }
 }
