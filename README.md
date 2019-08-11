@@ -6,3 +6,5 @@
 程序员小灰（ID：chengxuyuanxiaohui）
 
 祝大家在算法的道路上学有所成！
+
+针对《漫画算法》的第一次印刷版本，小灰整理了一个勘误表，欢迎大家指正：http://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&mid=505714242&idx=1&sn=59526f45b94db2f4be750273431e8867&chksm=0c99e4983bee6d8eb4beed7f6143bbbc00659f32056b37db1d3f1b925ca6867d7d2c34d6ad64#rd
