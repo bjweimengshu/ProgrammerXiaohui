@@ -125,9 +125,9 @@ public class LRUCache {
         lruCache.put("004", "用户4信息");
         lruCache.put("005", "用户5信息");
         lruCache.get("002");
-        lruCache.put("004", "用户2信息更新");
+        lruCache.put("004", "用户4信息更新");
         lruCache.put("006", "用户6信息");
-        System.out.println(lruCache.get("001"));;
-        System.out.println(lruCache.get("006"));;
+        System.out.println(lruCache.get("001"));
+        System.out.println(lruCache.get("006"));
     }
 }
