@@ -34,11 +34,9 @@ public class AStar {
             // 找到所有邻近节点
             List<Grid> neighbors = findNeighbors(currentGrid, openList, closeList);
             for (Grid grid : neighbors) {
-                if (!openList.contains(grid)) {
-                    //邻近节点不在openList中，标记父亲、G、H、F，并放入openList
-                    grid.initGrid(currentGrid, end);
-                    openList.add(grid);
-                }
+                //邻近节点不在openList中，标记父亲、G、H、F，并放入openList
+                grid.initGrid(currentGrid, end);
+                openList.add(grid);
             }
             //如果终点在openList中，直接返回终点格子
             for (Grid grid : openList){
@@ -122,11 +120,7 @@ public class AStar {
 
         public void initGrid(Grid parent, Grid end){
             this.parent = parent;
-            if(parent != null){
-                this.g = parent.g + 1;
-            }else {
-                this.g = 1;
-            }
+            this.g = parent.g + 1;
             this.h = Math.abs(this.x - end.x) + Math.abs(this.y - end.y);
             this.f = this.g + this.h;
         }

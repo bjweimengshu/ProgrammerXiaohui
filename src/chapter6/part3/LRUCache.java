@@ -46,6 +46,9 @@ public class LRUCache {
 
     public void remove(String key) {
         Node node = hashMap.get(key);
+        if(node == null){
+            return;
+        }
         removeNode(node);
         hashMap.remove(key);
     }
