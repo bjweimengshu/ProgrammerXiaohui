@@ -56,7 +56,7 @@ public class PriorityQueue {
             //无需真正交换，单向赋值即可
             array[childIndex] = array[parentIndex];
             childIndex = parentIndex;
-            parentIndex = parentIndex / 2;
+            parentIndex = (parentIndex-1) / 2;
         }
         array[childIndex] = temp;
     }
