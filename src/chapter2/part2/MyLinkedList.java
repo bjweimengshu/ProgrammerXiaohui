@@ -56,6 +56,9 @@ public class MyLinkedList {
             //删除头节点
             removedNode = head;
             head = head.next;
+            if(size == 1){
+                last = null;
+            }
         }else if(index == size-1){
             //删除尾节点
             Node prevNode = get(index-1);
